@@ -31,5 +31,40 @@ general purpose programming languages to more accurately represent the EVM execu
 - `&ic` internal (local) code
 - `&ec` external code
 
-Semantics are beyond the scope of the syntax specification, for more on their behavior see the
-[data location semantics document](../semantics/data-locations.md).
+### Semantics
+
+#### Persistent and Transient Storage
+
+Both persistent and transient storage data locations behave in similar ways, as a 256 bit map of
+keys and values. The pointer itself is a 256 bit key.
+
+Assignment to a storage pointer will set the value at the key to the value of the pointer.
+
+#### Memory
+
+Memory is a mutable data buffer that may be read, written, and copied. The pointer itself is a 32
+bit index.
+
+> Note: At the time of writing, memory copying requires a staticcall to the identity precompile. It
+> is rarely profitable to copy memory, however, future versions of the EVM may implement MCOPY.
+
+#### Calldata
+
+Calldata is a read-only data buffer that may be read or copied to memory. The pointer itself is a 32
+bit index.
+
+#### Returndata
+
+Returndata is a read-only data buffer that may be copied to memory. The pointer itself is a 32 bit
+index.
+
+#### Internal Code
+
+Internal, or local, bytecode, is a read-only data buffer that may be copied to memory. The pointer
+may be used for copying internal code to memory or as a jump destination. The pointer itself is a 32
+bit index.
+
+#### External Code
+
+External bytecode, is a read-only data buffer that may be copied to memory. The pointer itself is a
+32 bit index and 160 bit address.

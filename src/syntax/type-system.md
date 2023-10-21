@@ -12,3 +12,9 @@ parametric polymorphism, nominative subtyping, and compile time monomorphization
 - [Implementation](./type-system/implementation.md)
 - [Function Types](./type-system/function-types.md)
 - [Application Binary Interface](./type-system/abi.md)
+
+## Semantics
+
+All data types are, by default, stack values. If a data type exists in any data location other than
+the stack, it must be annotated with a data location. Pairs of data locations and types are distinct
+data types. That is to say, for a type `T` in memory (`&m and storage 

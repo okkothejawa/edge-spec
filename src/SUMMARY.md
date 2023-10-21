@@ -32,6 +32,7 @@
   - [Modules](syntax/modules.md)
 - [Syntax Showcase](syntax-showcase.md)
 - [Semantics](semantics.md)
+  - [Built-In Functions](semantics/built-in-functions.md)
   - [Namespaces](semantics/namespaces.md)
   - [Scoping](semantics/scoping.md)
   - [Visibility](semantics/visibility.md)
